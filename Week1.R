@@ -20,3 +20,5 @@ max(x, na.rm = TRUE)
 #to find help
 ?min()
 summary(x)
+y <- mean(x)
+summary(x,y)
