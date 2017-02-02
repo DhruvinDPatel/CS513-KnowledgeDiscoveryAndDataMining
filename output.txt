@@ -1,0 +1,174 @@
+> # Introduction to R
+> # First Name  : Dhruvin
+> # Last Name   : Patel
+> # CWID        : 10420356
+> # Email       : dpate78@stevens.edu
+> 
+> hello <- "Hello World"
+> print(hello)
+[1] "Hello World"
+> # use c
+> x <- c(1,2,2,2,5,10)
+> x
+[1]  1  2  2  2  5 10
+> min(x)
+[1] 1
+> max(x)
+[1] 10
+> mean(x)
+[1] 3.666667
+> summary(x)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   2.000   2.000   3.667   4.250  10.000 
+> x
+[1]  1  2  2  2  5 10
+> x <- c(1,2,2,2,5,NA,10)
+> min(x)
+[1] NA
+> max(x)
+[1] NA
+> mean(x)
+[1] NA
+> summary(x)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   2.000   2.000   3.667   4.250  10.000       1 
+> # without using summary
+> min(x, na.rm = TRUE)
+[1] 1
+> max(x, na.rm = TRUE)
+[1] 10
+> #to find help
+> ?min()
+> summary(x)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  1.000   2.000   2.000   3.667   4.250  10.000       1 
+> y <- mean(x, na.rm = TRUE)
+> summary(y)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  3.667   3.667   3.667   3.667   3.667   3.667 
+> # List memory for stored objects
+> ls()
+[1] "avector"      "elementnames" "fullname"     "hello"        "mylastname"  
+[6] "x"            "y"           
+> # to remove object
+> rm(x)
+> ls()
+[1] "avector"      "elementnames" "fullname"     "hello"        "mylastname"  
+[6] "y"           
+> #
+> length(hello)
+[1] 1
+> ?length()
+> ?nchar()
+> nchar(hello)
+[1] 11
+> #
+> ?is()
+> ?vector()
+> is.vector(hello)
+[1] TRUE
+> mode(hello)
+[1] "character"
+> num <- 1233456
+> is.vector(num)
+[1] TRUE
+> mode(num)
+[1] "numeric"
+> numchar <- '123456'
+> is.vector(numchar)
+[1] TRUE
+> mode(numchar)
+[1] "character"
+> c <- 'c'
+> is.vector(c)
+[1] TRUE
+> mode(c)
+[1] "character"
+> #
+> x1 <- c(10,5,6,6,6,7)
+> x1
+[1] 10  5  6  6  6  7
+> x2 <- c(1,2,3)
+> x2
+[1] 1 2 3
+> # wrong way of doing vector addition(two diff sizes of vector)
+> x3 <- x1 + x2
+> x3
+[1] 11  7  9  7  8 10
+> x2 <- c(1,2,3,4)
+> x3 <- x1 + x2
+Warning message:
+In x1 + x2 :
+  longer object length is not a multiple of shorter object length
+> x3
+[1] 11  7  9 10  7  9
+> #
+> ?seq()
+> x3 <- seq(from=1, to=6, by=1)
+> x3
+[1] 1 2 3 4 5 6
+> typeof(x3)
+[1] "double"
+> mode(x3)
+[1] "numeric"
+> x4 <- 1:6
+> typeof(x4)
+[1] "integer"
+> mode(x4)
+[1] "numeric"
+> x5 <- as.integer(x3)
+> typeof(x5)
+[1] "integer"
+> ?as()
+> #
+> x6 <- c(x3,x4)
+> x6
+ [1] 1 2 3 4 5 6 1 2 3 4 5 6
+> typeof(x6)
+[1] "double"
+> x7 <- c(as.integer(x3),x4)
+> x7
+ [1] 1 2 3 4 5 6 1 2 3 4 5 6
+> typeof(x7)
+[1] "integer"
+> # reverse casting of data types : numbers to character
+> x9 <- c(x7,hello)
+> x9
+ [1] "1"           "2"           "3"           "4"           "5"           "6"          
+ [7] "1"           "2"           "3"           "4"           "5"           "6"          
+[13] "Hello World"
+> mode(x9)
+[1] "character"
+> typeof(x9)
+[1] "character"
+> #
+> myfirstname <- "Dhrvin"
+> mylastname <- "Patel"
+> fullname <- c(myfirstname,mylastname)
+> fullname
+[1] "Dhrvin" "Patel" 
+> rm(myfirstname)
+> myfirstname
+Error: object 'myfirstname' not found
+> #
+> avector <- c(1,2,3,4)
+> names(avector) <- c("one","two","three","four")
+> avector
+  one   two three  four 
+    1     2     3     4 
+> typeof(avector)
+[1] "double"
+> elementnames <- names(avector)
+> elementnames
+[1] "one"   "two"   "three" "four" 
+> # to free up memory
+> ?rm()
+> ls()
+ [1] "avector"      "c"            "elementnames" "fullname"     "hello"       
+ [6] "mylastname"   "num"          "numchar"      "x1"           "x2"          
+[11] "x3"           "x4"           "x5"           "x6"           "x7"          
+[16] "x9"           "y"           
+> rm(list = ls())
+> ls()
+character(0)
+> 
