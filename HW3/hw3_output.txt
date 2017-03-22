@@ -1,0 +1,71 @@
+> # First Name : Dhruvin
+> # Last Name : Patel
+> # Lecture : B
+> # CWID  : 10420356
+> 
+> # loading data from link
+> csv_data <- read.csv("http://www.math.smith.edu/sasr/datasets/help.csv")
+> attach(csv_data)
+The following objects are masked _by_ .GlobalEnv:
+
+    d1, mcs1
+
+The following objects are masked from csv_data (pos = 3):
+
+    a15a, a15b, age, anysubstatus, cesd, cesd1, cesd2, cesd3, cesd4, d1,
+    daysanysub, daysdrink, dayslink, drinkstatus, drugrisk, drugrisk1,
+    drugrisk2, drugrisk3, drugrisk4, e2b, e2b1, e2b2, e2b3, e2b4, f1a, f1b,
+    f1c, f1d, f1e, f1f, f1g, f1h, f1i, f1j, f1k, f1l, f1m, f1n, f1o, f1p, f1q,
+    f1r, f1s, f1t, female, g1b, g1b1, g1b2, g1b3, g1b4, homeless, i1, i11,
+    i12, i13, i14, i2, id, indtot, indtot1, indtot2, indtot3, indtot4,
+    linkstatus, mcs, mcs1, mcs2, mcs3, mcs4, pcrec1, pcrec2, pcrec3, pcrec4,
+    pcs, pcs1, pcs2, pcs3, pcs4, pss_fr, racegrp, satreat, sexrisk, sexrisk1,
+    sexrisk2, sexrisk3, sexrisk4, substance, treat
+
+The following objects are masked from csv_data (pos = 4):
+
+    a15a, a15b, age, anysubstatus, cesd, cesd1, cesd2, cesd3, cesd4, d1,
+    daysanysub, daysdrink, dayslink, drinkstatus, drugrisk, drugrisk1,
+    drugrisk2, drugrisk3, drugrisk4, e2b, e2b1, e2b2, e2b3, e2b4, f1a, f1b,
+    f1c, f1d, f1e, f1f, f1g, f1h, f1i, f1j, f1k, f1l, f1m, f1n, f1o, f1p, f1q,
+    f1r, f1s, f1t, female, g1b, g1b1, g1b2, g1b3, g1b4, homeless, i1, i11,
+    i12, i13, i14, i2, id, indtot, indtot1, indtot2, indtot3, indtot4,
+    linkstatus, mcs, mcs1, mcs2, mcs3, mcs4, pcrec1, pcrec2, pcrec3, pcrec4,
+    pcs, pcs1, pcs2, pcs3, pcs4, pss_fr, racegrp, satreat, sexrisk, sexrisk1,
+    sexrisk2, sexrisk3, sexrisk4, substance, treat
+
+> 
+> #1
+> d1 <- data.frame(id, pcs1, mcs1, substance, racegrp)
+> View(d1)
+> 
+> #2
+> mean_of_mcs1 <- mean(mcs1, na.rm = TRUE)
+> mean_of_mcs1
+[1] 40.98346
+> max_of_mcs1 <- max(mcs1, na.rm = TRUE)
+> max_of_mcs1
+[1] 69.93903
+> sd_of_mcs1 <- sd(mcs1, na.rm = TRUE)
+> sd_of_mcs1
+[1] 10.15946
+> median_of_mcs1 <- median(mcs1, na.rm = TRUE)
+> median_of_mcs1
+[1] 40.98346
+> min_of_mcs1 <- min(mcs1, na.rm = TRUE)
+> min_of_mcs1
+[1] 6.677404
+> 
+> #3
+> table(substance,racegrp)
+         racegrp
+substance black hispanic other white
+  alcohol    55       17     9    96
+  cocaine   125        7     7    13
+  heroin     31       26    10    57
+> 
+> #4
+> mcs1[is.na(mcs1)] <- mean_of_mcs1
+> summary(mcs1)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  6.677  40.670  40.980  40.980  43.870  69.940 
